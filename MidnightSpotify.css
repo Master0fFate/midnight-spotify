@@ -13,7 +13,7 @@
 /* Added Modern Indicators for design*/
 @import url('https://discord-extensions.github.io/modern-indicators/src/source.css');
 @import url('https://refact0r.github.io/midnight-discord/midnight.css');
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 
 /*body {   
@@ -22,10 +22,10 @@
 */
 :root {
 	/* font, change to 'gg sans' for default discord font*/
-	--font: 'Lexend Deca', sans-serif;
+	--font: 'Poppins', sans-serif;
 
 	/* top left corner text */
-	--corner-text: '> .discord';
+	--corner-text: '> Discordo';
 
 	/* color of status indicators and window controls */
 	--online-indicator: var(--accent-2); /* change to #23a55a for default green */

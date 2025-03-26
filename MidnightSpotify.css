@@ -2,7 +2,7 @@
  * @name Spotify Midnight
  * @description A darkened discord theme with Spotify colors.
  * @author refact0r x fate4real
- * @version 1.6.2M
+ * @version 3.0M
  * @source https://github.com/refact0r/midnight-discord
  * @authorId 508863359777505290 x 935324723133440010
  * @authorLink https://www.refact0r.dev
@@ -31,21 +31,20 @@
 	/* top left corner text */
 	--corner-text: '> Discordo';
 
-	/* color of status indicators and window controls */
-	--online-indicator: var(--accent-2); /* change to #23a55a for default green */
-	--dnd-indicator: hsl(0, 100%, 31%); /* change to #f13f43 for default red */
-	--idle-indicator: hsl(50, 60%, 60%); /* change to #f0b232 for default yellow */
-	--streaming-indicator: hsl(260, 60%, 60%); /* change to #593695 for default purple */
+	/* color of status indicators */
+	--online: #1DB954; /* Spotify green */
+	--dnd: #E91429; /* Spotify red */
+	--idle: #FFAE00; /* Spotify yellow/orange */
+	--streaming: #9147FF; /* Twitch purple */
+	--offline: var(--text-4); /* default offline */
 
-	/* accent colors */
-/* Accent colors */
-	--accent-1: hsl(136, 40%, 51%); /* Spotify green color (links) - example value*/
-	--accent-2: hsl(136, 38%, 47%); /* Darker shade for general unread/mention elements */
-	--accent-3: hsl(136, 40%, 42%); /* Slightly darker accent buttons */
-	--accent-4: hsl(136, 38%, 38%); /* Accent buttons when hovered - slightly lighter than --accent-5*/
-	--accent-5: hsl(136, 40%, 34%); /* Accent buttons when clicked (darker shade) */
-	--mention: hsla(133, 97%, 14%, 0.267); /* mentions & mention messages */
-	--mention-hover: hsla(125, 100%, 12%, 0.521); /* mentions & mention messages when hovered */
+	/* accent colors - Spotify green palette */
+	--accent-1: #1DB954; /* Spotify green for links and accent text */
+	 --accent-2: #1AA74B; /* Small accent elements */
+	--accent-3: #169A43; /* Accent buttons */
+	--accent-4: #138C3B; /* Accent buttons when hovered */
+	--accent-5: #107D34; /* Accent buttons when clicked */
+	--accent-new: #1DB954; /* Elements that are normally red */
 
 	/* text colors */
 	--text-0: white; /* text on colored elements */
@@ -55,14 +54,19 @@
 	--text-4: hsl(220, 15%, 40%); /* icon buttons and channels */
 	--text-5: hsl(220, 15%, 25%); /* muted channels/chats and timestamps */
 
-	/* background and dark colors */
-	--bg-1: hsl(220, 15%, 20%); /* dark buttons when clicked */
-	--bg-2: hsl(220, 15%, 16%); /* dark buttons */
-	--bg-3: hsl(220, 16%, 7%); /* spacing, secondary elements */
-	--bg-4: hsl(240, 8%, 5%); /* main background color */
-	--hover: hsla(230, 20%, 40%, 0.1); /* channels and buttons when hovered */
-	--active: hsla(220, 20%, 40%, 0.2); /* channels and buttons when clicked or selected */
-	--message-hover: hsla(220, 0%, 0%, 0.1); /* messages when hovered */
+	/* background and message thingys */
+    	--bg-1: hsl(220, 15%, 20%); /* dark buttons when clicked */
+    	--bg-2: hsl(220, 15%, 16%); /* dark buttons */
+    	--bg-3: hsl(220, 16%, 7%); /* spacing, secondary elements */
+    	--bg-4: hsl(240, 8%, 5%); /* main background color */
+	--hover: hsla(141, 73%, 42%, 0.1); /* channels and buttons when hovered */
+    	--active: hsla(141, 73%, 42%, 0.2); /* channels and buttons when clicked or selected */
+    	--active-2: hsla(141, 73%, 42%, 0.3); /* extra state for transparent buttons */
+    	--message-hover: hsla(220, 0%, 0%, 0.1); /* messages when hovered */
+    	--mention: linear-gradient(to right, color-mix(in hsl, #1DB954, transparent 90%) 40%, transparent); /* mentions */
+    	--mention-hover: linear-gradient(to right, color-mix(in hsl, #1DB954, transparent 95%) 40%, transparent); /* mentions hover */
+    	--reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* replies */
+    	--reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* replies hover */
 
 	/* amount of spacing and padding */
 	--spacing: 12px;
@@ -82,12 +86,44 @@
 	--roundness-xs: 10px; /* channels, buttons */
 	--roundness-xxs: 8px; /* searchbar, small elements */
 
+	/* base colors - ensure blue variants are replaced with green */
+    	--blue-1: #1DB954; /* replacing blue with Spotify green */
+    	--blue-2: #1AA74B;
+    	--blue-3: #169A43;
+    	--blue-4: #138C3B;
+    	--blue-5: #107D34;
+	
 	/* direct messages moon icon */
 	/* change to block to show, none to hide */
 	--discord-icon: none; /* discord icon */
 	--moon-icon: block; /* moon icon */
 	--moon-icon-url: url('https://upload.wikimedia.org/wikipedia/commons/c/c4/Font_Awesome_5_solid_moon.svg'); /* custom icon url */
 	--moon-icon-size: auto;
+	/* Fix for specific Discord elements that might still be using cyan/blue */
+	.wrapper__5aeaf.modeSelected__487d6,
+	.wrapper__5aeaf.modeConnected__5ddce,
+	.colorBrand_be5f58,
+	.lookFilled__751d1.colorBrand_be5f58,
+	.colorDefault__0b482 .checkbox_d1fedf.checked_c4fc71 {
+	    color: var(--accent-2) !important;
+	    background-color: var(--accent-2) !important;
+	}
+	
+	/* Fix mention colors */
+	.mentioned__5126c {
+	    background: var(--mention) !important;
+	}
+	.mentioned__5126c:hover {
+	    background: var(--mention-hover) !important;
+	}
+	
+	/* Fix scrollbar colors */
+	::-webkit-scrollbar-thumb {
+	    background-color: var(--accent-3) !important;
+	}
+	::-webkit-scrollbar-thumb:hover {
+	    background-color: var(--accent-2) !important;
+	}
 
 	/* filter uncolorable elements to fit theme */
 	/* (just set to none, they're too much work to configure) */

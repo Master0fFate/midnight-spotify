@@ -3,7 +3,6 @@
 
 body {
     --font: 'Poppins';
-    
     --text-0: #ffffff;
     --text-1: #ffffff;
     --text-2: #e8e8e8;
@@ -37,7 +36,6 @@ body {
     --streaming: #9146ff;
     --offline: #5a5a5a;
 
-    /* Minimal borders */
     --border-light: rgba(255, 255, 255, 0.02);
     --border: rgba(255, 255, 255, 0.04);
     --border-subtle: rgba(255, 255, 255, 0.06);
@@ -46,7 +44,6 @@ body {
     --button-border: rgba(255, 255, 255, 0.06);
     --border-faint: rgba(255, 255, 255, 0.01);
 
-    /* Color variations */
     --red-1: #ff6b6b;
     --red-2: #e22134;
     --red-3: #c41e3a;
@@ -327,6 +324,83 @@ body {
     --font-primary: var(--font), 'gg sans';
     --font-display: var(--font), 'gg sans';
     --font-code: var(--code-font), 'gg mono';
+}
+
+::selection {
+    background: rgba(30, 215, 96, 0.3);
+    color: #1ed760;
+}
+
+::-moz-selection {
+    background: rgba(30, 215, 96, 0.3);
+    color: #1ed760;
+}
+
+.visual-refresh {
+    *::selection {
+        background: rgba(30, 215, 96, 0.25);
+        color: #1fdf64;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+    
+    *::-moz-selection {
+        background: rgba(30, 215, 96, 0.25);
+        color: #1fdf64;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+    
+    .messageContent_f9f2ca *::selection,
+    .markup_f8f345 *::selection {
+        background: rgba(30, 215, 96, 0.2); 
+        color: #1ed760;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.08);
+    }
+    
+    .messageContent_f9f2ca *::-moz-selection,
+    .markup_f8f345 *::-moz-selection {
+        background: rgba(30, 215, 96, 0.2);
+        color: #1ed760;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.08);
+    }
+    
+    code::selection,
+    .hljs::selection {
+        background: rgba(30, 215, 96, 0.3);
+        color: #1fdf64;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+    
+    code::-moz-selection,
+    .hljs::-moz-selection {
+        background: rgba(30, 215, 96, 0.3);
+        color: #1fdf64;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+    
+    input::selection,
+    textarea::selection,
+    .channelTextArea_f75fb0 *::selection {
+        background: rgba(30, 215, 96, 0.25);
+        color: #1ed760;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+    
+    input::-moz-selection,
+    textarea::-moz-selection,
+    .channelTextArea_f75fb0 *::-moz-selection {
+        background: rgba(30, 215, 96, 0.25);
+        color: #1ed760;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+    }
+}
+
+@container root style(--colors: on) {
+    ::selection,
+    .highlight {
+        background: rgba(30, 215, 96, 0.3) !important;
+        color: #1ed760 !important;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.1) !important;
+    }
 }
 
 ::-webkit-scrollbar {

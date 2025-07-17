@@ -1,133 +1,348 @@
-/**
- * @name Spotify Midnight
- * @description A darkened discord theme with Spotify colors.
- * @author refact0r x fate4real
- * @version 3.0M
- * @source https://github.com/refact0r/midnight-discord
- * @authorId 508863359777505290 x 935324723133440010
- * @authorLink https://www.refact0r.dev
-*/
-
-/* IMPORTANT: make sure to enable dark mode in discord settings for the theme to apply properly!!! */
-/* Original theme: Midnight */
-/* Added Modern Indicators for design*/
-/* @import url('https://discord-extensions.github.io/modern-indicators/src/source.css'); TEST*/ 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
-/* Main Import */
 @import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
-/*------^------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+body {
+    --font: 'Poppins';
+    
+    --text-0: #ffffff;
+    --text-1: #ffffff;
+    --text-2: #e8e8e8;
+    --text-3: #b3b3b3;
+    --text-4: #a0a0a0;
+    --text-5: #808080;
 
+    --bg-1: #1a1d23;
+    --bg-2: #16191f;
+    --bg-3: #13161b;
+    --bg-4: #0f1117;
+    --hover: rgba(255, 255, 255, 0.06);
+    --active: rgba(255, 255, 255, 0.10);
+    --active-2: rgba(255, 255, 255, 0.14);
+    --message-hover: rgba(255, 255, 255, 0.02);
 
-/*body {   
-    font-family: 'Consolas', monospace;  // OPTIONAL FONT 
- }
-*/
-:root {
-	/* font, change to 'gg sans' for default discord font*/
-	--font: 'Poppins', sans-serif; 
+    --accent-1: #1ed760;
+    --accent-2: #1ed760;
+    --accent-3: #1ed760;
+    --accent-4: #1fdf64;
+    --accent-5: #1db954;
+    --accent-new: #1ed760;
+    --mention: linear-gradient(to right, rgba(30, 215, 96, 0.1) 40%, transparent);
+    --mention-hover: linear-gradient(to right, rgba(30, 215, 96, 0.15) 40%, transparent);
+    --reply: linear-gradient(to right, rgba(179, 179, 179, 0.1) 40%, transparent);
+    --reply-hover: linear-gradient(to right, rgba(179, 179, 179, 0.15) 40%, transparent);
 
-	/* top left corner text */
-	--corner-text: '> Discordo';
+    --online: #1ed760;
+    --dnd: #e22134;
+    --idle: #ffa500;
+    --streaming: #9146ff;
+    --offline: #5a5a5a;
 
-	/* color of status indicators */
-	--online: #1DB954; /* Spotify green */
-	--dnd: #E91429; /* Spotify red */
-	--idle: #FFAE00; /* Spotify yellow/orange */
-	--streaming: #9147FF; /* Twitch purple */
-	--offline: var(--text-4); /* default offline */
+    /* Minimal borders */
+    --border-light: rgba(255, 255, 255, 0.02);
+    --border: rgba(255, 255, 255, 0.04);
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-normal: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.10);
+    --button-border: rgba(255, 255, 255, 0.06);
+    --border-faint: rgba(255, 255, 255, 0.01);
 
-	/* accent colors - Spotify green palette */
-	--accent-1: #1DB954; /* Spotify green for links and accent text */
-	--accent-2: #1AA74B; /* Small accent elements */
-	--accent-3: #169A43; /* Accent buttons */
-	--accent-4: #138C3B; /* Accent buttons when hovered */
-	--accent-5: #107D34; /* Accent buttons when clicked */
-	--accent-new: #1DB954; /* Elements that are normally red */
+    /* Color variations */
+    --red-1: #ff6b6b;
+    --red-2: #e22134;
+    --red-3: #c41e3a;
+    --red-4: #a01b33;
+    --red-5: #7d182c;
 
-	/* text colors */
-	--text-0: white; /* text on colored elements */
-	--text-1: var(--text-2); /* other normally white text */
-	--text-2: hsl(220, 25%, 70%); /* headings and important text */
-	--text-3: hsl(0, 0%, 77%); /* normal text */
-	--text-4: hsl(220, 15%, 40%); /* icon buttons and channels */
-	--text-5: hsl(220, 15%, 25%); /* muted channels/chats and timestamps */
+    --green-1: #1fdf64;
+    --green-2: #1ed760;
+    --green-3: #1db954;
+    --green-4: #1a9d4a;
+    --green-5: #178140;
 
-	/* background and message thingys */
-    	--bg-1: hsl(220, 15%, 20%); /* dark buttons when clicked */
-    	--bg-2: hsl(220, 15%, 16%); /* dark buttons */
-    	--bg-3: hsl(220, 16%, 7%); /* spacing, secondary elements */
-    	--bg-4: hsl(240, 8%, 5%); /* main background color */
-	--hover: hsla(0, 0%, 35%, 0.1); /* channels and buttons when hovered - gray shade */
-	--active: hsla(0, 0%, 40%, 0.2); /* channels and buttons when clicked or selected - darker gray */
-	--active-2: hsla(0, 0%, 45%, 0.3)
-    	--message-hover: hsla(220, 0%, 0%, 0.1); /* messages when hovered */
-    	--mention: linear-gradient(to right, color-mix(in hsl, #1DB954, transparent 90%) 40%, transparent); /* mentions */
-    	--mention-hover: linear-gradient(to right, color-mix(in hsl, #1DB954, transparent 95%) 40%, transparent); /* mentions hover */
-    	--reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent); /* replies */
-    	--reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 95%) 40%, transparent); /* replies hover */
+    --blue-1: #5090d3;
+    --blue-2: #4285f4;
+    --blue-3: #1976d2;
+    --blue-4: #1565c0;
+    --blue-5: #0d47a1;
 
-	/* amount of spacing and padding */
-	--spacing: 12px;
+    --yellow-1: #ffeb3b;
+    --yellow-2: #ffc107;
+    --yellow-3: #ff9800;
+    --yellow-4: #f57c00;
+    --yellow-5: #e65100;
 
-	/* animations */
-	/* ALL ANIMATIONS CAN BE DISABLED WITH REDUCED MOTION IN DISCORD SETTINGS */
-	--list-item-transition: 0.2s ease; /* channels/members/settings hover transition */
-	--unread-bar-transition: 0.2s ease; /* unread bar moving into view transition */
-	--moon-spin-transition: 0.4s ease; /* moon icon spin */
-	--icon-spin-transition: 1s ease; /* round icon button spin (settings, emoji, etc.) */
+    --purple-1: #bb86fc;
+    --purple-2: #9146ff;
+    --purple-3: #7c3aed;
+    --purple-4: #6d28d9;
+    --purple-5: #5b21b6;
+}
 
-	/* corner roundness (border-radius) */
-	--roundness-xl: 22px; /* roundness of big panel outer corners */
-	--roundness-l: 20px; /* popout panels */
-	--roundness-m: 16px; /* smaller panels, images, embeds */
-	--roundness-s: 12px; /* members, settings inputs */
-	--roundness-xs: 10px; /* channels, buttons */
-	--roundness-xxs: 8px; /* searchbar, small elements */
+@container root style(--colors: on) {
+    .visual-refresh body,
+    .visual-refresh .theme-dark:not(.custom-user-profile-theme),
+    .visual-refresh .theme-light:not(.custom-user-profile-theme) {
+        --activity-card-background: var(--bg-3);
+        --alert-bg: red;
+        --autocomplete-bg: var(--bg-3);
 
-	/* base colors - ensure blue variants are replaced with green */
-    	--blue-1: #1DB954; /* replacing blue with Spotify green */
-    	--blue-2: #1AA74B;
-    	--blue-3: #169A43;
-    	--blue-4: #138C3B;
-    	--blue-5: #107D34;
-	
-	/* direct messages moon icon */
-	/* change to block to show, none to hide */
-	--discord-icon: none; /* discord icon */
-	--moon-icon: block; /* moon icon */
-	--moon-icon-url: url('https://upload.wikimedia.org/wikipedia/commons/c/c4/Font_Awesome_5_solid_moon.svg'); /* custom icon url */
-	--moon-icon-size: auto;
-	/* Fix for specific Discord elements that might still be using cyan/blue */
-	.wrapper__5aeaf.modeSelected__487d6,
-	.wrapper__5aeaf.modeConnected__5ddce,
-	.colorBrand_be5f58,
-	.lookFilled__751d1.colorBrand_be5f58,
-	.colorDefault__0b482 .checkbox_d1fedf.checked_c4fc71 {
-	    color: var(--accent-2) !important;
-	    background-color: var(--accent-2) !important;
-	}
-	
-	/* Fix mention colors */
-	.mentioned__5126c {
-	    background: var(--mention) !important;
-	}
-	.mentioned__5126c:hover {
-	    background: var(--mention-hover) !important;
-	}
-	
-	/* Fix scrollbar colors */
-	::-webkit-scrollbar-thumb {
-	    background-color: var(--accent-3) !important;
-	}
-	::-webkit-scrollbar-thumb:hover {
-	    background-color: var(--accent-2) !important;
-	}
+        --background-accent: var(--bg-2);
+        --background-floating: var(--bg-3);
+        --background-nested-floating: var(--bg-4);
+        --background-mentioned: var(--mention);
+        --background-mentioned-hover: var(--mention-hover);
+        --background-message-automod: red;
+        --background-message-automod-hover: red;
+        --background-message-highlight: var(--reply);
+        --background-message-highlight-hover: var(--reply-hover);
+        --background-message-hover: var(--message-hover);
 
-	/* filter uncolorable elements to fit theme */
-	/* (just set to none, they're too much work to configure) */
-	--login-bg-filter: saturate(0.3) hue-rotate(-15deg) brightness(0.4); /* login background artwork */
-	--green-to-accent-3-filter: hue-rotate(56deg) saturate(1.43); /* add friend page explore icon */
-	--blurple-to-accent-3-filter: hue-rotate(304deg) saturate(0.84) brightness(1.2); /* add friend page school icon */
+        --background-primary: var(--bg-4);
+        --background-secondary: var(--bg-3);
+        --background-secondary-alt: var(--bg-3);
+        --background-tertiary: var(--bg-4);
+
+        --bg-base-primary: var(--bg-4);
+        --bg-base-secondary: var(--bg-4);
+        --bg-base-tertiary: var(--bg-3);
+        --background-mod-subtle: var(--hover);
+        --background-mod-normal: var(--active);
+        --background-mod-strong: var(--active-2);
+        --background-base-low: var(--bg-4);
+        --background-base-lower: var(--bg-4);
+        --background-base-lowest: var(--bg-4);
+        --background-surface-high: var(--bg-3);
+        --background-surface-higher: var(--bg-3);
+        --background-surface-highest: var(--bg-3);
+        --bg-surface-overlay: var(--bg-4);
+        --bg-surface-raised: var(--bg-3);
+        --chat-background-default: var(--bg-3);
+        --chat-text-muted: var(--text-5);
+        --input-background: var(--bg-3);
+        --modal-background: var(--bg-4);
+        --modal-footer-background: var(--bg-4);
+
+        --background-modifier-accent: var(--hover);
+        --background-modifier-active: var(--active);
+        --background-modifier-hover: var(--hover);
+        --background-modifier-selected: var(--active);
+
+        --bg-mod-faint: var(--hover);
+        --bg-mod-subtle: var(--bg-2);
+        --bg-mod-strong: var(--bg-2);
+        --bg-brand: var(--accent-2);
+
+        --border-faint: var(--border-light);
+        --border-subtle: var(--border);
+        --border-normal: var(--border);
+        --border-strong: var(--border);
+        --input-border: var(--border);
+
+        --button-danger-background: var(--red-3);
+        --button-danger-background-active: var(--red-5);
+        --button-danger-background-hover: var(--red-4);
+        --button-danger-background-disabled: var(--red-5);
+        --button-danger-border: var(--button-border);
+
+        --button-filled-brand-text: var(--text-0);
+        --button-filled-brand-background: var(--accent-3);
+        --button-filled-brand-background-active: var(--accent-5);
+        --button-filled-brand-background-hover: var(--accent-4);
+        --button-filled-brand-border: var(--button-border);
+
+        --button-filled-brand-inverted-background: var(--text-1);
+        --button-filled-brand-inverted-background-active: var(--text-3);
+        --button-filled-brand-inverted-background-hover: var(--text-2);
+        --button-filled-brand-inverted-text: var(--bg-4);
+        --button-filled-white-background: var(--text-1);
+        --button-filled-white-background-active: var(--text-3);
+        --button-filled-white-background-hover: var(--text-2);
+        --button-filled-white-text: var(--bg-4);
+
+        --button-outline-danger-background: var(--bg-2);
+        --button-outline-danger-background-active: var(--text-5);
+        --button-outline-danger-background-hover: var(--bg-1);
+        --button-outline-danger-border: var(--border-light);
+        --button-outline-danger-border-active: var(--border-light);
+        --button-outline-danger-border-hover: var(--border-light);
+        --button-outline-danger-text: var(--red-1);
+        --button-outline-danger-text-active: var(--red-1);
+        --button-outline-danger-text-hover: var(--red-1);
+
+        --button-outline-primary-background: red;
+        --button-outline-primary-background-active: var(--active);
+        --button-outline-primary-background-hover: var(--hover);
+        --button-outline-primary-border: var(--text-5);
+        --button-outline-primary-border-active: var(--text-5);
+        --button-outline-primary-border-hover: var(--text-5);
+        --button-outline-primary-text: var(--text-3);
+        --button-outline-primary-text-active: var(--text-3);
+        --button-outline-primary-text-hover: var(--text-3);
+
+        --button-outline-positive-background: red;
+        --button-outline-positive-background-active: var(--green-4);
+        --button-outline-positive-background-hover: var(--green-3);
+        --button-outline-positive-border: var(--green-2);
+        --button-outline-positive-border-active: var(--green-4);
+        --button-outline-positive-border-hover: var(--green-3);
+        --button-outline-positive-text: var(--text-3);
+        --button-outline-positive-text-active: var(--text-0);
+        --button-outline-positive-text-hover: var(--text-0);
+
+        --button-positive-background: var(--green-2);
+        --button-positive-background-active: var(--green-4);
+        --button-positive-background-hover: var(--green-3);
+        --button-positive-background-disabled: var(--green-4);
+        --button-positive-border: var(--button-border);
+
+        --button-secondary-background: var(--bg-2);
+        --button-secondary-background-active: var(--text-5);
+        --button-secondary-background-hover: var(--bg-1);
+        --button-secondary-background-disabled: var(--bg-3);
+        --button-secondary-text: var(--text-3);
+
+        --button-transparent-background: var(--hover);
+        --button-transparent-background-active: var(--active-2);
+        --button-transparent-background-hover: var(--active);
+        --button-transparent-text: var(--text-3);
+
+        --redesign-button-secondary-text: var(--text-3);
+
+        --polls-voted-fill: color-mix(in hsl, var(--accent-2), transparent 90%);
+        --polls-victor-fill: color-mix(in hsl, var(--green-2), transparent 90%);
+
+        --card-primary-bg: var(--bg-3);
+        --card-secondary-bg: var(--bg-2);
+        --channel-icon: var(--text-4);
+        --channels-default: var(--text-4);
+
+        --embed-title: var(--text-2);
+
+        --header-primary: var(--text-2);
+        --header-secondary: var(--text-4);
+        --header-muted: var(--text-4);
+
+        --icon-muted: var(--text-5);
+        --icon-primary: var(--text-3);
+        --icon-secondary: var(--text-4);
+        --icon-tertiary: var(--text-4);
+
+        --info-danger-background: red;
+        --info-danger-text: red;
+        --info-help-background: color-mix(in hsl, var(--blue-2), transparent 80%);
+        --info-help-foreground: var(--blue-1);
+        --info-help-text: var(--blue-1);
+        --info-positive-background: color-mix(in hsl, var(--yellow-1), transparent 80%);
+        --info-positive-text: var(--green-1);
+        --info-warning-background: color-mix(in hsl, var(--yellow-2), transparent 80%);
+        --info-warning-text: var(--yellow-1);
+
+        --text-brand: var(--accent-1);
+        --text-danger: var(--red-1);
+        --text-link: var(--accent-1);
+        --text-link-low-saturation: red;
+        --text-low-contrast: var(--text-4);
+        --text-message-preview-low-sat: red;
+        --text-muted: var(--text-5);
+        --text-muted-on-default: var(--text-4);
+        --text-normal: var(--text-3);
+        --text-positive: var(--green-1);
+        --text-primary: var(--text-3);
+        --text-secondary: var(--text-4);
+        --text-warning: var(--yellow-1);
+        --text-default: var(--text-3);
+        --text-feedback-critical: var(--red-1);
+        --text-feedback-positive: var(--green-1);
+        --text-feedback-info: red;
+        --text-feedback-warning: var(--yellow-1);
+        --text-tertiary: var(--text-4);
+
+        --user-profile-overlay-background: var(--bg-4);
+        --user-profile-overlay-background-hover: var(--bg-2);
+
+        --status-danger: var(--red-2);
+        --status-danger-background: var(--red-3);
+        --status-danger-text: var(--white);
+        --status-dnd: var(--dnd);
+        --status-idle: var(--idle);
+        --status-offline: var(--offline);
+        --status-online: var(--online);
+        --status-positive: var(--green-2);
+        --status-positive-background: var(--green-2);
+        --status-positive-text: var(--white);
+        --status-speaking: var(--green-2);
+        --status-warning: var(--yellow-2);
+        --status-warning-background: red;
+        --status-warning-text: var(--black);
+
+        --background-feedback-critical: color-mix(in hsl, var(--red-2), transparent 80%);
+        --background-feedback-info: color-mix(in hsl, var(--blue-2), transparent 80%);
+        --background-feedback-positive: color-mix(in hsl, var(--green-2), transparent 80%);
+        --background-feedback-warning: color-mix(in hsl, var(--yellow-2), transparent 80%);
+
+        --interactive-normal: var(--text-4);
+        --interactive-hover: var(--text-3);
+        --interactive-active: var(--text-3);
+        --interactive-muted: var(--text-5);
+
+        --mention-foreground: var(--accent-1);
+        --mention-background: color-mix(in hsl, var(--accent-2), transparent 90%);
+
+        --channel-text-area-placeholder: var(--text-5);
+
+        --message-reacted-text: var(--text-2);
+        --message-reacted-background: color-mix(in hsl, var(--accent-2), transparent 80%);
+
+        --custom-channel-members-bg: var(--bg-4);
+
+        --redesign-input-control-selected: var(--accent-2);
+
+        --scrollbar-auto-thumb: var(--bg-3);
+        --scrollbar-auto-track: transparent;
+        --scrollbar-thin-thumb: var(--bg-3);
+        --scrollbar-thin-track: transparent;
+
+        --white: var(--text-0);
+        --white-500: var(--text-0);
+        --redesign-button-overlay-alpha-text: var(--text-2);
+
+        --brand-360: var(--accent-2);
+        --brand-500: var(--accent-2);
+        --blurple-50: var(--accent-2);
+
+        --red-400: var(--red-2);
+        --red-500: var(--red-3);
+
+        --green-360: var(--green-2);
+        --primary-400: var(--text-4);
+
+        --deprecated-text-input-bg: var(--bg-3);
+        --deprecated-text-input-border: var(--border-light);
+
+        --background-code: var(--bg-3);
+    }
+}
+
+body {
+    --font-primary: var(--font), 'gg sans';
+    --font-display: var(--font), 'gg sans';
+    --font-code: var(--code-font), 'gg mono';
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-2);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-1);
 }
